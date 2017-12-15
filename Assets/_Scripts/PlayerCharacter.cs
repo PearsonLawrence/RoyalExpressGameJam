@@ -13,6 +13,8 @@ public class PlayerCharacter : MonoBehaviour {
 
     }
 
+    public HealthComponent HP;
+
     public States CurrentState;
 
     public float moveSpeed;
@@ -107,7 +109,7 @@ public class PlayerCharacter : MonoBehaviour {
         RB = GetComponent<Rigidbody>();
         CurrentState = States.IdleState;
         AttackTime = MaxAttackTime;
-
+        HP = GetComponent<HealthComponent>();
     }
 	
     void updateAnim()
@@ -137,28 +139,33 @@ public class PlayerCharacter : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-
-        UpdateKeyInput();
-
-        switch(CurrentState)
+        if (!HP.isDead)
         {
-            case States.IdleState:
-                DoIdle();
-                break;
-            case States.MoveState:
-                DoMove();
-                break;
-            case States.RangedAttackState:
-                DoRangedAttack();
-                break;
-            case States.AttackState:
-                DoAttack();
-                break;
+            UpdateKeyInput();
+
+            switch (CurrentState)
+            {
+                case States.IdleState:
+                    DoIdle();
+                    break;
+                case States.MoveState:
+                    DoMove();
+                    break;
+                case States.RangedAttackState:
+                    DoRangedAttack();
+                    break;
+                case States.AttackState:
+                    DoAttack();
+                    break;
+
+            }
+
+            DoLook();
+            updateAnim();
+        }
+        else
+        {
 
         }
-
-        DoLook();
-        updateAnim();
-
     }
 }

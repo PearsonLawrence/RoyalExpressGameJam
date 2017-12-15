@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: b2746adde3474b94eb2fcc85081791d8
-timeCreated: 1513365594
+timeCreated: 1513370917
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -187,22 +187,22 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.37333333
+      - time: 0.4
         functionName: DamageEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.99
-        functionName: EndAttack
+      - time: 0.45
+        functionName: EndDamage
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.40666667
-        functionName: EndDamage
+      - time: 0.99333334
+        functionName: EndAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 2a9d5beffb5071d489fedbd19d5e554b
-timeCreated: 1513365590
+guid: 150dfcfdd4465a84d8543680dc28277c
+timeCreated: 1513370913
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
     100002: default
-    100004: flappantsthign:polySurface7
+    100004: flappantsthign:flappantsthign:flappantsthign:polySurface4
     100006: mixamorig:Head
     100008: mixamorig:HeadTop_End
     100010: mixamorig:Hips
@@ -75,7 +75,7 @@ ModelImporter:
     100134: mixamorig:Spine2
     400000: //RootNode
     400002: default
-    400004: flappantsthign:polySurface7
+    400004: flappantsthign:flappantsthign:flappantsthign:polySurface4
     400006: mixamorig:Head
     400008: mixamorig:HeadTop_End
     400010: mixamorig:Hips
@@ -144,10 +144,10 @@ ModelImporter:
     2300000: default
     3300000: default
     4300000: default
-    4300002: flappantsthign:polySurface7
+    4300002: flappantsthign:flappantsthign:flappantsthign:polySurface4
     7400000: mixamo.com
     9500000: //RootNode
-    13700000: flappantsthign:polySurface7
+    13700000: flappantsthign:flappantsthign:flappantsthign:polySurface4
   materials:
     importMaterials: 1
     materialName: 0

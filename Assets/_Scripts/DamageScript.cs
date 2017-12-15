@@ -24,7 +24,7 @@ public class DamageScript : MonoBehaviour {
     {
         if(other.CompareTag(TagName))
         {
-            other.GetComponent<HealthComponent>().CurrentHealth -= DamageAmount;
+            other.GetComponent<HealthComponent>().TakeDamage(DamageAmount);
         }
     }
 }
