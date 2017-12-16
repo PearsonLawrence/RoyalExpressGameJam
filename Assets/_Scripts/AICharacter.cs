@@ -74,9 +74,8 @@ public class AICharacter : MonoBehaviour {
         Agent.speed = moveSpeed;
 
         RB = GetComponent<Rigidbody>();
-        CurrentState = States.MoveState;
+        CurrentState = States.IdleState;
         AttackTime = MaxAttackTime;
-        Player = GameObject.FindObjectOfType<PlayerCharacter>();
     }
 
     void updateAnim()
@@ -133,7 +132,8 @@ public class AICharacter : MonoBehaviour {
     {
         if (!HP.isDead)
         {
-            Agent.destination = Player.transform.position;
+            if(Player !=null)
+                Agent.destination = Player.transform.position;
 
             switch (CurrentState)
             {
@@ -156,7 +156,7 @@ public class AICharacter : MonoBehaviour {
         }
         else
         {
-
+            Agent.isStopped = true;
         }
     }
 }

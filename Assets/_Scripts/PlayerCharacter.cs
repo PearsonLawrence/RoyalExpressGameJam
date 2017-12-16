@@ -18,6 +18,10 @@ public class PlayerCharacter : MonoBehaviour {
     public States CurrentState;
 
     public float moveSpeed;
+
+    public float SprintSpeed;
+
+    public float Speed;
     public Rigidbody RB;
     public Camera cam;
 
@@ -27,6 +31,8 @@ public class PlayerCharacter : MonoBehaviour {
 
     bool LeftClick, RightClick;
 
+    public bool Sprint;
+
     public void UpdateKeyInput()
     {
         Horizontal = Input.GetAxisRaw("Horizontal");
@@ -34,6 +40,8 @@ public class PlayerCharacter : MonoBehaviour {
 
         LeftClick = Input.GetMouseButton(0);
         RightClick = Input.GetMouseButton(1);
+
+        Sprint = (Input.GetKey(KeyCode.LeftShift) && CurrentState != States.AttackState);
 
         if((Horizontal != 0 || Verticle != 0) && (!LeftClick) && CurrentState == States.IdleState)
         {
@@ -85,9 +93,10 @@ public class PlayerCharacter : MonoBehaviour {
 
     void DoMove()
     {
-       
-        
-        RB.velocity = new Vector3(Horizontal * moveSpeed, RB.velocity.y, Verticle * moveSpeed);
+
+
+        Speed = (Sprint) ? SprintSpeed : moveSpeed;
+        RB.velocity = new Vector3(Horizontal * Speed, RB.velocity.y, Verticle * Speed);
         
     }
 
@@ -110,12 +119,13 @@ public class PlayerCharacter : MonoBehaviour {
         CurrentState = States.IdleState;
         AttackTime = MaxAttackTime;
         HP = GetComponent<HealthComponent>();
+        Speed = moveSpeed;
     }
 	
     void updateAnim()
     {
         var localVel = transform.InverseTransformDirection(RB.velocity);
-
+        anim.SetBool("Sprint", Sprint);
         anim.SetFloat("ForwardSpeed", localVel.z);
         anim.SetFloat("RightSpeed", localVel.x);
         anim = GetComponent<Animator>();
@@ -138,7 +148,7 @@ public class PlayerCharacter : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
         if (!HP.isDead)
         {
             UpdateKeyInput();

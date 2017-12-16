@@ -34,7 +34,8 @@ public class HealthComponent : MonoBehaviour {
     public void Die()
     {
         ParticleSystem PS = Instantiate(DeathPS, transform.position + new Vector3(0,.5f,0), DeathPS.transform.rotation);
-
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<Rigidbody>().useGravity = false;
         Destroy(PS, 1);
         if (anim != null)
         { 
