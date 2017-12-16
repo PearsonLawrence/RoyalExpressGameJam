@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class AICharacter : MonoBehaviour {
     
     public enum States
@@ -13,6 +14,8 @@ public class AICharacter : MonoBehaviour {
         IdleState
 
     }
+
+    public Image HealthBar;
 
     public States CurrentState;
 
@@ -62,6 +65,8 @@ public class AICharacter : MonoBehaviour {
     {
 
     }
+
+    public bool isBoss;
 
     public HealthComponent HP;
     // Use this for initialization
@@ -153,10 +158,18 @@ public class AICharacter : MonoBehaviour {
             }
             UpdateWatchPlayer();
             updateAnim();
+            HealthBar.fillAmount = HP.CurrentHealth / HP.MaxHealth;
         }
         else
         {
+            HealthBar.gameObject.SetActive(false);
             Agent.isStopped = true;
+            if(isBoss)
+            {
+                MenuManager menu = GameObject.FindObjectOfType<MenuManager>();
+                menu.win = true;
+                menu.fadeOut = true;
+            }
         }
     }
 }

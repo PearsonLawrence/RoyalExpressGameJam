@@ -30,7 +30,7 @@ public class HealthComponent : MonoBehaviour {
 	}
 
     public bool isDead;
-
+    public bool isPlayer;
     public void Die()
     {
         ParticleSystem PS = Instantiate(DeathPS, transform.position + new Vector3(0,.5f,0), DeathPS.transform.rotation);
@@ -41,6 +41,12 @@ public class HealthComponent : MonoBehaviour {
         { 
             anim.SetInteger("DieNum", Random.Range(0, 2));
              anim.SetTrigger("Die");
+            if(isPlayer)
+            {
+                MenuManager menu = GameObject.FindObjectOfType<MenuManager>();
+                menu.win = true;
+                menu.fadeOut = true;
+            }
         }
         else
         {

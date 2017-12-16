@@ -22,6 +22,8 @@ public class AIDetectionRadius : MonoBehaviour {
         {
             Self.Player = other.GetComponent<PlayerCharacter>();
             Self.SeePlayer = true;
+            
+            
         }
     }
 }

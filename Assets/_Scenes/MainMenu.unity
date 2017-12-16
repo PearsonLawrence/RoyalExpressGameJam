@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 224297134}
   - component: {fileID: 224297133}
   m_Layer: 5
-  m_Name: Canvas (1)
+  m_Name: Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1140,11 +1140,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas1: {fileID: 2026528377}
   Canvas2: {fileID: 224297131}
+  Canvas3: {fileID: 0}
+  Canvas4: {fileID: 0}
+  Canvas5: {fileID: 0}
   Fade: {fileID: 1266463107}
   FadeSpeed: 1
   fadein: 1
   fadeOut: 0
+  Begin: 0
+  GameBegin: 0
   start: 0
+  win: 0
+  cutscene: 0
+  cam: {fileID: 0}
+  MCam: {fileID: 0}
 --- !u!1 &1649859578
 GameObject:
   m_ObjectHideFlags: 0
